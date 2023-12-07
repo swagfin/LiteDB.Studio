@@ -62,6 +62,7 @@
     <Compile Include="Classes\DragUIHelper.cs" />
     <Compile Include="Classes\SqlCodeCompletion.cs" />
     <Compile Include="Classes\UIExtensions.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Forms\ConnectionForm.cs">
       <SubType>Form</SubType>
     </Compile>

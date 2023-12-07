@@ -10,9 +10,9 @@ namespace LiteDB.Studio.Forms
             InitializeComponent();
             RecentOpenedDbGrid.DataSource = new List<RecentOpenedDbFiles>
             {
-                new RecentOpenedDbFiles("ASP.NET Core Web App (Razor Pages)"),
-                new RecentOpenedDbFiles(".NET MAUI Blazor Hybrid App"),
-                new RecentOpenedDbFiles("Windows Forms App (.NET Framework)")
+                new RecentOpenedDbFiles("testDb.db::C:\\local\\litedbs\\withAuth..."),
+                new RecentOpenedDbFiles("cache.db::.C:\\users\\access\\litedb..."),
+                new RecentOpenedDbFiles("customers.db::.C:\\data\\repository\\s...")
             };
         }
 
