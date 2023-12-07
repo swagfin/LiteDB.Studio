@@ -63,6 +63,16 @@ namespace LiteDB.Studio.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap add_new_database_icon {
+            get {
+                object obj = ResourceManager.GetObject("add_new_database_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap application_put {
             get {
                 object obj = ResourceManager.GetObject("application_put", resourceCulture);
@@ -226,6 +236,16 @@ namespace LiteDB.Studio.Properties {
         internal static System.Drawing.Bitmap lightning {
             get {
                 object obj = ResourceManager.GetObject("lightning", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap open_database_icon {
+            get {
+                object obj = ResourceManager.GetObject("open_database_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

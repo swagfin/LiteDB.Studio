@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LiteDB.Studio.Forms;
+using System;
 using System.Windows.Forms;
 
 namespace LiteDB.Studio
@@ -13,7 +14,8 @@ namespace LiteDB.Studio
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm(args.Length == 0 ? null : args[0]));
+            // Application.Run(new MainForm(args.Length == 0 ? null : args[0]));
+            Application.Run(new StartUpForm());
         }
     }
 }

@@ -59,6 +59,7 @@
     <Compile Include="Classes\Debugger\DatabaseDebugger.cs" />
     <Compile Include="Classes\Debugger\HtmlPageDump.cs" />
     <Compile Include="Classes\Debugger\HtmlPageList.cs" />
+    <Compile Include="Classes\DragUIHelper.cs" />
     <Compile Include="Classes\SqlCodeCompletion.cs" />
     <Compile Include="Classes\UIExtensions.cs" />
     <Compile Include="Forms\ConnectionForm.cs">
@@ -74,6 +75,12 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\TaskData.cs" />
+    <Compile Include="Forms\StartUpForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\StartUpForm.Designer.cs">
+      <DependentUpon>StartUpForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ICSharpCode.TextEditor\Actions\BookmarkActions.cs" />
     <Compile Include="ICSharpCode.TextEditor\Actions\CaretActions.cs" />
     <Compile Include="ICSharpCode.TextEditor\Actions\ClipBoardActions.cs" />
@@ -225,20 +232,18 @@
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\StartUpForm.resx">
+      <DependentUpon>StartUpForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ICSharpCode.TextEditor\Gui\ContextMenu.resx">
       <DependentUpon>ContextMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ICSharpCode.TextEditor\Properties\Resources.resx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="ICSharpCode.TextEditor\Resources\JSON-Mode.xshd" />
     <EmbeddedResource Include="ICSharpCode.TextEditor\Resources\Mode.xsd">
       <SubType>Designer</SubType>
@@ -249,6 +254,11 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -340,6 +350,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="LiteDB.Studio.ico" />
+    <None Include="Resources\add_new_database_icon.png" />
+    <None Include="Resources\open_database-icon.png" />
+    <None Include="Resources\open_database-42.png" />
     <None Include="Resources\bug_link.png" />
   </ItemGroup>
   <ItemGroup>
