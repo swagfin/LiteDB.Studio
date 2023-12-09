@@ -35,11 +35,17 @@ namespace LiteDB.Studio.Forms
         private void OpenDbButton_Click(object sender, System.EventArgs e)
         {
             OpenDbButton.Enabled = false;
-            TriggerOpenDatabase();
+            ConnectionString connectionString = TriggerAttemptOpenDatabase();
+            if (connectionString != null)
+            {
+                MainForm mainFormRequest = new MainForm(connectionString);
+                mainFormRequest.ShowDialog();
+                this.Show();
+            }
             OpenDbButton.Enabled = true;
         }
 
-        private void TriggerOpenDatabase(string dbFilePath = null, string password = null, bool passwordTriggered = false)
+        private ConnectionString TriggerAttemptOpenDatabase(string dbFilePath = null, string password = null, bool passwordTriggered = false)
         {
             try
             {
@@ -54,7 +60,7 @@ namespace LiteDB.Studio.Forms
                         openFileDialog.Multiselect = false;
                         // Display the OpenFileDialog
                         if (openFileDialog.ShowDialog() != DialogResult.OK)
-                            return;
+                            return null;
                         // Get the selected file name and check if it exists
                         dbFilePath = openFileDialog.FileName;
                     }
@@ -84,21 +90,20 @@ namespace LiteDB.Studio.Forms
                         RequestDbPasswordForm requestDbPasswordForm = new RequestDbPasswordForm(ex.Message);
                         bool positiveFeedback = requestDbPasswordForm.ShowDialog() == DialogResult.OK;
                         if (positiveFeedback)
-                            TriggerOpenDatabase(dbFilePath, requestDbPasswordForm.DbPassword, true);
+                            return TriggerAttemptOpenDatabase(dbFilePath, requestDbPasswordForm.DbPassword, true);
                     }
                     else
                         Program.HandleError(ex);
                     //show Window
                     this.Show();
                 }
-
                 //if no exception
-                MainForm mainFormRequest = new MainForm(dbConnectionString);
-                mainFormRequest.ShowDialog();
+                return dbConnectionString;
             }
             catch (Exception ex)
             {
                 Program.HandleError(ex);
+                return null;
             }
         }
     }
