@@ -76,6 +76,12 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\TaskData.cs" />
+    <Compile Include="Forms\RequestDbPasswordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RequestDbPasswordForm.Designer.cs">
+      <DependentUpon>RequestDbPasswordForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\StartUpForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -233,6 +239,9 @@
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RequestDbPasswordForm.resx">
+      <DependentUpon>RequestDbPasswordForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\StartUpForm.resx">
       <DependentUpon>StartUpForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -351,6 +360,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="LiteDB.Studio.ico" />
+    <None Include="Resources\db-password-key.png" />
     <None Include="Resources\add_new_database_icon.png" />
     <None Include="Resources\open_database-icon.png" />
     <None Include="Resources\open_database-42.png" />

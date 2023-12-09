@@ -14,8 +14,8 @@ namespace LiteDB.Studio
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            // Application.Run(new MainForm(args.Length == 0 ? null : args[0]));
-            Application.Run(new StartUpForm());
+            Application.Run(new StartUpForm(args));
         }
+        public static void HandleError(Exception ex) => MessageBox.Show(ex.Message, "An Error Occurred");
     }
 }
