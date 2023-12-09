@@ -28,14 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StartUpForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.RecentOpenedDbGrid = new System.Windows.Forms.DataGridView();
             this.ColumnImage = new System.Windows.Forms.DataGridViewImageColumn();
             this.ColumnRecentProjectTemplates = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FilePathColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.SystemVersionLabel = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -44,8 +46,12 @@
             this.NewDbButton = new System.Windows.Forms.Button();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.CloseBtn = new System.Windows.Forms.Button();
+            this.RecentFilesStatusLabel = new System.Windows.Forms.Label();
+            this.RecentConnectionsContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.removeFromRecentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.RecentOpenedDbGrid)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
+            this.RecentConnectionsContextMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -72,7 +78,8 @@
             this.RecentOpenedDbGrid.ColumnHeadersVisible = false;
             this.RecentOpenedDbGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnImage,
-            this.ColumnRecentProjectTemplates});
+            this.ColumnRecentProjectTemplates,
+            this.FilePathColumn});
             this.RecentOpenedDbGrid.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.RecentOpenedDbGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(52)))));
             this.RecentOpenedDbGrid.Location = new System.Drawing.Point(17, 116);
@@ -86,17 +93,20 @@
             this.RecentOpenedDbGrid.ShowEditingIcon = false;
             this.RecentOpenedDbGrid.Size = new System.Drawing.Size(348, 378);
             this.RecentOpenedDbGrid.TabIndex = 1;
+            this.RecentOpenedDbGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.RecentOpenedDbGrid_CellContentClick);
+            this.RecentOpenedDbGrid.CellContextMenuStripNeeded += new System.Windows.Forms.DataGridViewCellContextMenuStripNeededEventHandler(this.RecentOpenedDbGrid_CellContextMenuStripNeeded);
+            this.RecentOpenedDbGrid.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.RecentOpenedDbGrid_DataBindingComplete);
             // 
             // ColumnImage
             // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(52)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Calibri", 14.25F);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle7.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle7.NullValue")));
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(57)))), ((int)(((byte)(65)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
-            this.ColumnImage.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(52)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Calibri", 14.25F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle4.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle4.NullValue")));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(57)))), ((int)(((byte)(65)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
+            this.ColumnImage.DefaultCellStyle = dataGridViewCellStyle4;
             this.ColumnImage.HeaderText = "ImageColumn";
             this.ColumnImage.Image = global::LiteDB.Studio.Properties.Resources.database;
             this.ColumnImage.MinimumWidth = 25;
@@ -108,16 +118,24 @@
             // 
             this.ColumnRecentProjectTemplates.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.ColumnRecentProjectTemplates.DataPropertyName = "Title";
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(52)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(57)))), ((int)(((byte)(65)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
-            this.ColumnRecentProjectTemplates.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(52)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(57)))), ((int)(((byte)(65)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
+            this.ColumnRecentProjectTemplates.DefaultCellStyle = dataGridViewCellStyle5;
             this.ColumnRecentProjectTemplates.HeaderText = "Recent Project Templates";
             this.ColumnRecentProjectTemplates.Name = "ColumnRecentProjectTemplates";
             this.ColumnRecentProjectTemplates.ReadOnly = true;
             this.ColumnRecentProjectTemplates.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // FilePathColumn
+            // 
+            this.FilePathColumn.DataPropertyName = "FilePath";
+            this.FilePathColumn.HeaderText = "FilePath";
+            this.FilePathColumn.Name = "FilePathColumn";
+            this.FilePathColumn.ReadOnly = true;
+            this.FilePathColumn.Visible = false;
             // 
             // label2
             // 
@@ -201,14 +219,14 @@
             // 
             // dataGridViewImageColumn1
             // 
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(52)))));
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Calibri", 14.25F);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle9.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle9.NullValue")));
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(57)))), ((int)(((byte)(65)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(52)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Calibri", 14.25F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle6.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle6.NullValue")));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(57)))), ((int)(((byte)(65)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewImageColumn1.HeaderText = "ImageColumn";
             this.dataGridViewImageColumn1.Image = global::LiteDB.Studio.Properties.Resources.database;
             this.dataGridViewImageColumn1.MinimumWidth = 25;
@@ -230,17 +248,44 @@
             this.CloseBtn.UseVisualStyleBackColor = false;
             this.CloseBtn.Click += new System.EventHandler(this.CloseBtn_Click);
             // 
+            // RecentFilesStatusLabel
+            // 
+            this.RecentFilesStatusLabel.AutoSize = true;
+            this.RecentFilesStatusLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RecentFilesStatusLabel.ForeColor = System.Drawing.Color.SeaShell;
+            this.RecentFilesStatusLabel.Location = new System.Drawing.Point(85, 126);
+            this.RecentFilesStatusLabel.Name = "RecentFilesStatusLabel";
+            this.RecentFilesStatusLabel.Size = new System.Drawing.Size(128, 15);
+            this.RecentFilesStatusLabel.TabIndex = 7;
+            this.RecentFilesStatusLabel.Text = "No recent connections";
+            // 
+            // RecentConnectionsContextMenu
+            // 
+            this.RecentConnectionsContextMenu.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.RecentConnectionsContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.removeFromRecentsToolStripMenuItem});
+            this.RecentConnectionsContextMenu.Name = "RecentConnectionsContextMenu";
+            this.RecentConnectionsContextMenu.Size = new System.Drawing.Size(191, 48);
+            // 
+            // removeFromRecentsToolStripMenuItem
+            // 
+            this.removeFromRecentsToolStripMenuItem.Name = "removeFromRecentsToolStripMenuItem";
+            this.removeFromRecentsToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.removeFromRecentsToolStripMenuItem.Text = "Remove from Recents";
+            this.removeFromRecentsToolStripMenuItem.Click += new System.EventHandler(this.removeFromRecentsToolStripMenuItem_Click);
+            // 
             // StartUpForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(52)))));
             this.ClientSize = new System.Drawing.Size(781, 506);
+            this.Controls.Add(this.RecentOpenedDbGrid);
+            this.Controls.Add(this.RecentFilesStatusLabel);
             this.Controls.Add(this.CloseBtn);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.RecentOpenedDbGrid);
             this.Controls.Add(this.SystemVersionLabel);
             this.Controls.Add(this.label2);
             this.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -249,9 +294,11 @@
             this.Opacity = 0.99D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "StartUpForm";
+            this.Load += new System.EventHandler(this.StartUpForm_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.StartUpForm_MouseDown);
             ((System.ComponentModel.ISupportInitialize)(this.RecentOpenedDbGrid)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
+            this.RecentConnectionsContextMenu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -261,8 +308,6 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView RecentOpenedDbGrid;
-        private System.Windows.Forms.DataGridViewImageColumn ColumnImage;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnRecentProjectTemplates;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button OpenDbButton;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
@@ -271,5 +316,11 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button NewDbButton;
         private System.Windows.Forms.Button CloseBtn;
+        private System.Windows.Forms.Label RecentFilesStatusLabel;
+        private System.Windows.Forms.DataGridViewImageColumn ColumnImage;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnRecentProjectTemplates;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FilePathColumn;
+        private System.Windows.Forms.ContextMenuStrip RecentConnectionsContextMenu;
+        private System.Windows.Forms.ToolStripMenuItem removeFromRecentsToolStripMenuItem;
     }
 }

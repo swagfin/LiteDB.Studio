@@ -10,9 +10,8 @@ namespace LiteDB.Studio
             if (!File.Exists(filePath))
                 return string.Empty;
             string fileName = Path.GetFileName(filePath);
-            string fileExtension = Path.GetExtension(filePath);
             string fullPathTrimmed = filePath.CharacterTrimEllipsis(maxLength);
-            return $"{fileName}:{fileExtension}:/{fullPathTrimmed}";
+            return $"{fileName}::{fullPathTrimmed}";
         }
     }
 }
