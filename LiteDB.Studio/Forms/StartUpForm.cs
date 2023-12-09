@@ -9,6 +9,7 @@ namespace LiteDB.Studio.Forms
         public StartUpForm(string[] args)
         {
             InitializeComponent();
+            SystemVersionLabel.Text = Program.AppVersion;
             RecentOpenedDbGrid.DataSource = new List<RecentOpenedDbFiles>
             {
                 new RecentOpenedDbFiles("testDb.db::C:\\local\\litedbs\\withAuth..."),
@@ -62,30 +63,38 @@ namespace LiteDB.Studio.Forms
                 if (!System.IO.File.Exists(dbFilePath))
                     throw new Exception($"The specified db file no longer exist, path: {dbFilePath}");
                 //proceed to Open Db in Shared Connection
+                this.Hide();
+                ConnectionString dbConnectionString = new ConnectionString
+                {
+                    Connection = ConnectionType.Shared,
+                    Filename = dbFilePath,
+                    Password = password
+                };
                 try
                 {
-                    LiteDatabase liteDatabase = new LiteDatabase(new ConnectionString()
+                    using (LiteDatabase liteDatabase = new LiteDatabase(dbConnectionString))
                     {
-                        Connection = ConnectionType.Shared,
-                        Filename = dbFilePath,
-                        Password = password
-                    });
-                    _ = liteDatabase.UserVersion; //force open
+                        _ = liteDatabase.UserVersion; //force open
+                    };
                 }
                 catch (LiteException ex)
                 {
                     if (ex.Message.Contains("encrypted") || passwordTriggered)
                     {
-                        this.Hide();
                         RequestDbPasswordForm requestDbPasswordForm = new RequestDbPasswordForm(ex.Message);
                         bool positiveFeedback = requestDbPasswordForm.ShowDialog() == DialogResult.OK;
-                        this.Show();
                         if (positiveFeedback)
                             TriggerOpenDatabase(dbFilePath, requestDbPasswordForm.DbPassword, true);
                     }
                     else
                         Program.HandleError(ex);
+                    //show Window
+                    this.Show();
                 }
+
+                //if no exception
+                MainForm mainFormRequest = new MainForm(dbConnectionString);
+                mainFormRequest.ShowDialog();
             }
             catch (Exception ex)
             {

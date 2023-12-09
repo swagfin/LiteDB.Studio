@@ -1,15 +1,10 @@
-﻿using ICSharpCode.TextEditor;
-using LiteDB.Engine;
-using LiteDB.Studio.Forms;
+﻿using LiteDB.Studio.Forms;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -25,24 +20,21 @@ namespace LiteDB.Studio
         private ConnectionString _connectionString = null;
         private SqlCodeCompletion _codeCompletion;
 
-        public MainForm(string filename)
+        public MainForm(ConnectionString connectionString)
         {
             InitializeComponent();
-
             // For performance https://stackoverflow.com/questions/4255148/how-to-improve-painting-performance-of-datagridview
             grdResult.DoubleBuffered(true);
-
             _synchronizationContext = SynchronizationContext.Current;
-
             _codeCompletion = new SqlCodeCompletion(txtSql, imgCodeCompletion);
-
-            if (string.IsNullOrWhiteSpace(filename))
+            //check if provided
+            if (connectionString == null)
             {
                 this.Disconnect();
             }
             else
             {
-                this.Connect(new ConnectionString(filename));
+                this.Connect(connectionString);
             }
 
             txtSql.ActiveTextAreaControl.TextArea.Caret.PositionChanged += (s, e) =>
@@ -59,14 +51,15 @@ namespace LiteDB.Studio
             // stop all threads
             this.FormClosing += (s, e) =>
             {
-                if(_db != null)
+                if (_db != null)
                 {
                     this.Disconnect();
                 }
             };
 
             // set assembly version on window title
-            this.Text += $" (v{typeof(MainForm).Assembly.GetName().Version.ToString()})";
+            this.Text += Program.AppVersion;
+
         }
 
         private async Task<LiteDatabase> AsyncConnect(ConnectionString connectionString)
@@ -295,7 +288,7 @@ namespace LiteDB.Studio
 
                     var sql = new StringReader(task.Sql.Trim());
 
-                    while(sql.Peek() >= 0 && _db != null)
+                    while (sql.Peek() >= 0 && _db != null)
                     {
                         using (var reader = _db.Execute(sql, task.Parameters))
                         {
@@ -368,10 +361,10 @@ namespace LiteDB.Studio
                 lblResultCount.Visible = true;
                 lblElapsed.Text = data.Elapsed.ToString();
                 prgRunning.Style = ProgressBarStyle.Blocks;
-                lblResultCount.Text = 
+                lblResultCount.Text =
                     data.Result == null ? "" :
                     data.Result.Count == 0 ? "no documents" :
-                    data.Result.Count  == 1 ? "1 document" : 
+                    data.Result.Count == 1 ? "1 document" :
                     data.Result.Count + (data.LimitExceeded ? "+" : "") + " documents";
 
                 if (data.Exception != null)
@@ -380,19 +373,19 @@ namespace LiteDB.Studio
                     txtParameters.BindErrorMessage(data.Sql, data.Exception);
                     grdResult.BindErrorMessage(data.Sql, data.Exception);
                 }
-                else if(data.Result != null)
+                else if (data.Result != null)
                 {
                     if (tabResult.SelectedTab == tabGrid && data.IsGridLoaded == false)
                     {
                         grdResult.BindBsonData(data);
                         data.IsGridLoaded = true;
                     }
-                    else if(tabResult.SelectedTab == tabText && data.IsTextLoaded == false)
+                    else if (tabResult.SelectedTab == tabText && data.IsTextLoaded == false)
                     {
                         txtResult.BindBsonData(data);
                         data.IsTextLoaded = true;
                     }
-                    else if(tabResult.SelectedTab == tabParameters && data.IsParametersLoaded == false)
+                    else if (tabResult.SelectedTab == tabParameters && data.IsParametersLoaded == false)
                     {
                         txtParameters.BindParameter(data);
                         data.IsParametersLoaded = true;
@@ -611,7 +604,7 @@ namespace LiteDB.Studio
             // set focus to result
             this.ActiveControl =
                 tabResult.SelectedTab == tabGrid ? (Control)grdResult :
-                tabResult.SelectedTab == tabText ? (Control)txtResult : (Control)txtParameters; 
+                tabResult.SelectedTab == tabText ? (Control)txtResult : (Control)txtParameters;
         }
 
         private void TabSql_MouseClick(object sender, MouseEventArgs e)
