@@ -124,9 +124,12 @@ namespace LiteDB.Studio.Forms
                     if (ex.Message.Contains("encrypted") || passwordTriggered)
                     {
                         RequestDbPasswordForm requestDbPasswordForm = new RequestDbPasswordForm(ex.Message);
-                        bool positiveFeedback = requestDbPasswordForm.ShowDialog() == DialogResult.OK;
-                        if (positiveFeedback)
-                            return TriggerAttemptOpenDatabase(dbFilePath, requestDbPasswordForm.DbPassword, true);
+                        if (requestDbPasswordForm.ShowDialog() != DialogResult.OK)
+                        {
+                            this.Show();
+                            return null;
+                        }
+                        return TriggerAttemptOpenDatabase(dbFilePath, requestDbPasswordForm.DbPassword, true);
                     }
                     else
                         Program.HandleError(ex);
