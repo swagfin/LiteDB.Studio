@@ -55,13 +55,6 @@
             this.tlbSep2 = new System.Windows.Forms.ToolStripSeparator();
             this.btnRun = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnBegin = new System.Windows.Forms.ToolStripButton();
-            this.btnCommit = new System.Windows.Forms.ToolStripButton();
-            this.btnRollback = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnCheckpoint = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnDebug = new System.Windows.Forms.ToolStripButton();
             this.ctxMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.mnuQueryAll = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuQueryCount = new System.Windows.Forms.ToolStripMenuItem();
@@ -221,7 +214,7 @@
             this.grdResult.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdResult.Location = new System.Drawing.Point(6, 5);
             this.grdResult.Name = "grdResult";
-            this.grdResult.Size = new System.Drawing.Size(1106, 493);
+            this.grdResult.Size = new System.Drawing.Size(1106, 489);
             this.grdResult.TabIndex = 0;
             this.grdResult.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.GrdResult_CellBeginEdit);
             this.grdResult.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.GrdResult_CellEndEdit);
@@ -336,6 +329,8 @@
             // 
             // tlbMain
             // 
+            this.tlbMain.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tlbMain.Font = new System.Drawing.Font("Bahnschrift", 9.75F);
             this.tlbMain.GripMargin = new System.Windows.Forms.Padding(3);
             this.tlbMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnConnect,
@@ -343,14 +338,7 @@
             this.btnRefresh,
             this.tlbSep2,
             this.btnRun,
-            this.toolStripSeparator1,
-            this.btnBegin,
-            this.btnCommit,
-            this.btnRollback,
-            this.toolStripSeparator2,
-            this.btnCheckpoint,
-            this.toolStripSeparator4,
-            this.btnDebug});
+            this.toolStripSeparator1});
             this.tlbMain.Location = new System.Drawing.Point(0, 0);
             this.tlbMain.Name = "tlbMain";
             this.tlbMain.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
@@ -364,7 +352,7 @@
             this.btnConnect.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnConnect.Name = "btnConnect";
             this.btnConnect.Padding = new System.Windows.Forms.Padding(3);
-            this.btnConnect.Size = new System.Drawing.Size(78, 26);
+            this.btnConnect.Size = new System.Drawing.Size(79, 26);
             this.btnConnect.Text = "Connect";
             this.btnConnect.Click += new System.EventHandler(this.BtnConnect_Click);
             // 
@@ -379,7 +367,7 @@
             this.btnRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Padding = new System.Windows.Forms.Padding(3);
-            this.btnRefresh.Size = new System.Drawing.Size(72, 26);
+            this.btnRefresh.Size = new System.Drawing.Size(79, 26);
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.Click += new System.EventHandler(this.BtnRefresh_Click);
             // 
@@ -394,7 +382,7 @@
             this.btnRun.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnRun.Name = "btnRun";
             this.btnRun.Padding = new System.Windows.Forms.Padding(3);
-            this.btnRun.Size = new System.Drawing.Size(54, 26);
+            this.btnRun.Size = new System.Drawing.Size(55, 26);
             this.btnRun.Text = "Run";
             this.btnRun.Click += new System.EventHandler(this.BtnRun_Click);
             // 
@@ -402,62 +390,6 @@
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 29);
-            // 
-            // btnBegin
-            // 
-            this.btnBegin.Image = global::LiteDB.Studio.Properties.Resources.database;
-            this.btnBegin.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnBegin.Name = "btnBegin";
-            this.btnBegin.Size = new System.Drawing.Size(57, 26);
-            this.btnBegin.Text = "Begin";
-            this.btnBegin.ToolTipText = "Begin Transaction";
-            this.btnBegin.Click += new System.EventHandler(this.BtnBegin_Click);
-            // 
-            // btnCommit
-            // 
-            this.btnCommit.Image = global::LiteDB.Studio.Properties.Resources.database_save;
-            this.btnCommit.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnCommit.Name = "btnCommit";
-            this.btnCommit.Size = new System.Drawing.Size(71, 26);
-            this.btnCommit.Text = "Commit";
-            this.btnCommit.Click += new System.EventHandler(this.BtnCommit_Click);
-            // 
-            // btnRollback
-            // 
-            this.btnRollback.Image = global::LiteDB.Studio.Properties.Resources.database_delete;
-            this.btnRollback.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnRollback.Name = "btnRollback";
-            this.btnRollback.Size = new System.Drawing.Size(72, 26);
-            this.btnRollback.Text = "Rollback";
-            this.btnRollback.Click += new System.EventHandler(this.BtnRollback_Click);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 29);
-            // 
-            // btnCheckpoint
-            // 
-            this.btnCheckpoint.Image = global::LiteDB.Studio.Properties.Resources.application_put;
-            this.btnCheckpoint.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnCheckpoint.Name = "btnCheckpoint";
-            this.btnCheckpoint.Size = new System.Drawing.Size(88, 26);
-            this.btnCheckpoint.Text = "Checkpoint";
-            this.btnCheckpoint.Click += new System.EventHandler(this.BtnCheckpoint_Click);
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 29);
-            // 
-            // btnDebug
-            // 
-            this.btnDebug.Image = global::LiteDB.Studio.Properties.Resources.bug_link;
-            this.btnDebug.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnDebug.Name = "btnDebug";
-            this.btnDebug.Size = new System.Drawing.Size(62, 26);
-            this.btnDebug.Text = "Debug";
-            this.btnDebug.Click += new System.EventHandler(this.btnDebug_Click);
             // 
             // ctxMenu
             // 
@@ -669,9 +601,6 @@
         private System.Windows.Forms.ToolStripMenuItem mnuAnalyze;
         private System.Windows.Forms.ToolStripSeparator mnuSep1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripButton btnBegin;
-        private System.Windows.Forms.ToolStripButton btnCommit;
-        private System.Windows.Forms.ToolStripButton btnRollback;
         private System.Windows.Forms.ToolStripMenuItem mnuQueryAll;
         private System.Windows.Forms.ToolStripSeparator mnuSep2;
         private System.Windows.Forms.TabPage tabParameters;
@@ -686,11 +615,7 @@
         private ICSharpCode.TextEditor.TextEditorControl txtResult;
         private ICSharpCode.TextEditor.TextEditorControl txtParameters;
         private System.Windows.Forms.ImageList imgCodeCompletion;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripButton btnCheckpoint;
         private System.Windows.Forms.ToolStripMenuItem mnuRebuild;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
-        private System.Windows.Forms.ToolStripButton btnDebug;
     }
 }
 

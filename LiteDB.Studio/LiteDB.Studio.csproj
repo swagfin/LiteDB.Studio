@@ -56,9 +56,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\Debugger\DatabaseDebugger.cs" />
-    <Compile Include="Classes\Debugger\HtmlPageDump.cs" />
-    <Compile Include="Classes\Debugger\HtmlPageList.cs" />
     <Compile Include="Classes\DragUIHelper.cs" />
     <Compile Include="Classes\SqlCodeCompletion.cs" />
     <Compile Include="Classes\UIExtensions.cs" />

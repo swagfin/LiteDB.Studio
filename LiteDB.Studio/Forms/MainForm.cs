@@ -15,7 +15,6 @@ namespace LiteDB.Studio
         private readonly SynchronizationContext _synchronizationContext;
 
         private LiteDatabase _db = null;
-        private DatabaseDebugger _debugger = null;
         private ConnectionString _connectionString = null;
         private SqlCodeCompletion _codeCompletion;
 
@@ -127,7 +126,6 @@ namespace LiteDB.Studio
                 task.ThreadRunning = false;
                 task.WaitHandle.Set();
             }
-
             // clear all tabs and controls
             tabSql.TabPages.Clear();
 
@@ -139,17 +137,12 @@ namespace LiteDB.Studio
             tvwDatabase.Nodes.Clear();
 
             this.UIState(false);
-
             tvwDatabase.Focus();
 
             tlbMain.Enabled = false;
             lblCursor.Text = "Closing...";
-
             try
             {
-                _debugger?.Dispose();
-                _debugger = null;
-
                 _db?.Dispose();
                 _db = null;
 
@@ -174,12 +167,6 @@ namespace LiteDB.Studio
             btnRefresh.Enabled = enabled;
             tabSql.Enabled = enabled;
             btnRun.Enabled = enabled;
-
-            btnBegin.Enabled = enabled;
-            btnCommit.Enabled = enabled;
-            btnRollback.Enabled = enabled;
-            btnCheckpoint.Enabled = enabled;
-            btnDebug.Enabled = enabled;
         }
 
         private TaskData ActiveTask => tabSql.SelectedTab?.Tag as TaskData;
@@ -503,26 +490,6 @@ namespace LiteDB.Studio
             this.ExecuteSql(sql);
         }
 
-        private void BtnBegin_Click(object sender, EventArgs e)
-        {
-            this.ExecuteSql("BEGIN");
-        }
-
-        private void BtnCommit_Click(object sender, EventArgs e)
-        {
-            this.ExecuteSql("COMMIT");
-        }
-
-        private void BtnRollback_Click(object sender, EventArgs e)
-        {
-            this.ExecuteSql("ROLLBACK");
-        }
-
-        private void BtnCheckpoint_Click(object sender, EventArgs e)
-        {
-            this.ExecuteSql("CHECKPOINT");
-        }
-
         private void BtnConnect_Click(object sender, EventArgs e)
         {
             if (_db == null)
@@ -533,18 +500,6 @@ namespace LiteDB.Studio
             {
                 this.Disconnect();
             }
-        }
-
-        private void btnDebug_Click(object sender, EventArgs e)
-        {
-            if (_debugger == null)
-            {
-                _debugger = new DatabaseDebugger(_db, new Random().Next(8000, 9000));
-
-                _debugger.Start();
-            }
-
-            Process.Start("http://localhost:" + _debugger.Port);
         }
 
         #endregion
@@ -676,6 +631,5 @@ namespace LiteDB.Studio
         }
 
         #endregion
-
     }
 }
