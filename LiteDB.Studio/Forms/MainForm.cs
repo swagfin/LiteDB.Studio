@@ -1,5 +1,4 @@
-﻿using LiteDB.Studio.Forms;
-using System;
+﻿using System;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
@@ -139,8 +138,6 @@ namespace LiteDB.Studio
 
             tvwDatabase.Nodes.Clear();
 
-            btnConnect.Text = "Connect";
-
             this.UIState(false);
 
             tvwDatabase.Focus();
@@ -163,6 +160,9 @@ namespace LiteDB.Studio
             {
                 MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
+
+            //finally
+            this.Close();
         }
 
         private void UIState(bool enabled)
@@ -527,13 +527,7 @@ namespace LiteDB.Studio
         {
             if (_db == null)
             {
-                var dialog = new ConnectionForm(_connectionString ?? new ConnectionString());
-
-                dialog.ShowDialog();
-
-                if (dialog.DialogResult != DialogResult.OK) return;
-
-                this.Connect(dialog.ConnectionString);
+                this.Close();
             }
             else
             {

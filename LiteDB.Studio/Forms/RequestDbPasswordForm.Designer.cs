@@ -32,10 +32,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.DbPasswordBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.ConnectBtn = new System.Windows.Forms.Button();
             this.ErrorMessageBox = new System.Windows.Forms.Label();
             this.CloseBtn = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,7 +44,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Bahnschrift SemiLight", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(43)))), ((int)(((byte)(48)))));
-            this.label2.Location = new System.Drawing.Point(44, 11);
+            this.label2.Location = new System.Drawing.Point(39, 11);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(199, 25);
             this.label2.TabIndex = 8;
@@ -83,16 +83,6 @@
             this.label3.TabIndex = 9;
             this.label3.Text = "Some LiteDB databases may be encypted for security purposes.";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::LiteDB.Studio.Properties.Resources.db_password_key;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(27, 23);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 10;
-            this.pictureBox1.TabStop = false;
-            // 
             // ConnectBtn
             // 
             this.ConnectBtn.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -114,7 +104,7 @@
             // 
             this.ErrorMessageBox.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ErrorMessageBox.ForeColor = System.Drawing.Color.Crimson;
-            this.ErrorMessageBox.Location = new System.Drawing.Point(17, 169);
+            this.ErrorMessageBox.Location = new System.Drawing.Point(17, 164);
             this.ErrorMessageBox.Name = "ErrorMessageBox";
             this.ErrorMessageBox.Size = new System.Drawing.Size(308, 53);
             this.ErrorMessageBox.TabIndex = 11;
@@ -136,6 +126,16 @@
             this.CloseBtn.Text = "X";
             this.CloseBtn.UseVisualStyleBackColor = false;
             this.CloseBtn.Click += new System.EventHandler(this.CloseBtn_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::LiteDB.Studio.Properties.Resources.iconpack_lock;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(27, 23);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 10;
+            this.pictureBox1.TabStop = false;
             // 
             // RequestDbPasswordForm
             // 
