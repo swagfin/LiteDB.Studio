@@ -360,6 +360,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="LiteDB.Studio.ico" />
+    <None Include="Resources\iconpack-database-admin.png" />
+    <None Include="Resources\iconpack-database.png" />
     <None Include="Resources\db-password-key.png" />
     <None Include="Resources\add_new_database_icon.png" />
     <None Include="Resources\open_database-icon.png" />

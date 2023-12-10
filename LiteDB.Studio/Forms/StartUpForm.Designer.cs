@@ -29,23 +29,23 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StartUpForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.RecentOpenedDbGrid = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.SystemVersionLabel = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.OpenDbButton = new System.Windows.Forms.Button();
-            this.NewDbButton = new System.Windows.Forms.Button();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.CloseBtn = new System.Windows.Forms.Button();
             this.RecentFilesStatusLabel = new System.Windows.Forms.Label();
             this.RecentConnectionsContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.removeFromRecentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.OpenDbButton = new System.Windows.Forms.Button();
+            this.NewDbButton = new System.Windows.Forms.Button();
             this.ColumnImage = new System.Windows.Forms.DataGridViewImageColumn();
             this.ColumnRecentProjectTemplates = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FilePathColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -140,66 +140,6 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(372, 364);
             this.flowLayoutPanel1.TabIndex = 5;
             // 
-            // OpenDbButton
-            // 
-            this.OpenDbButton.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.OpenDbButton.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
-            this.OpenDbButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(199)))), ((int)(((byte)(228)))));
-            this.OpenDbButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(230)))), ((int)(((byte)(243)))));
-            this.OpenDbButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.OpenDbButton.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.OpenDbButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(43)))), ((int)(((byte)(48)))));
-            this.OpenDbButton.Image = global::LiteDB.Studio.Properties.Resources.open_database_icon;
-            this.OpenDbButton.Location = new System.Drawing.Point(10, 10);
-            this.OpenDbButton.Margin = new System.Windows.Forms.Padding(10);
-            this.OpenDbButton.Name = "OpenDbButton";
-            this.OpenDbButton.Padding = new System.Windows.Forms.Padding(5);
-            this.OpenDbButton.Size = new System.Drawing.Size(165, 85);
-            this.OpenDbButton.TabIndex = 2;
-            this.OpenDbButton.Tag = "#F3ECEC";
-            this.OpenDbButton.Text = "Open Database";
-            this.OpenDbButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.OpenDbButton.UseVisualStyleBackColor = false;
-            this.OpenDbButton.Click += new System.EventHandler(this.OpenDbButton_Click);
-            // 
-            // NewDbButton
-            // 
-            this.NewDbButton.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.NewDbButton.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
-            this.NewDbButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(199)))), ((int)(((byte)(228)))));
-            this.NewDbButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(230)))), ((int)(((byte)(243)))));
-            this.NewDbButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.NewDbButton.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NewDbButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(43)))), ((int)(((byte)(48)))));
-            this.NewDbButton.Image = global::LiteDB.Studio.Properties.Resources.add_new_database_icon;
-            this.NewDbButton.Location = new System.Drawing.Point(195, 10);
-            this.NewDbButton.Margin = new System.Windows.Forms.Padding(10);
-            this.NewDbButton.Name = "NewDbButton";
-            this.NewDbButton.Padding = new System.Windows.Forms.Padding(5);
-            this.NewDbButton.Size = new System.Drawing.Size(165, 85);
-            this.NewDbButton.TabIndex = 3;
-            this.NewDbButton.Tag = "#F3ECEC";
-            this.NewDbButton.Text = "New Database";
-            this.NewDbButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.NewDbButton.UseVisualStyleBackColor = false;
-            // 
-            // dataGridViewImageColumn1
-            // 
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(52)))));
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Calibri", 14.25F);
-            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle13.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle13.NullValue")));
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(57)))), ((int)(((byte)(65)))));
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle13;
-            this.dataGridViewImageColumn1.HeaderText = "ImageColumn";
-            this.dataGridViewImageColumn1.Image = global::LiteDB.Studio.Properties.Resources.database;
-            this.dataGridViewImageColumn1.MinimumWidth = 25;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.ReadOnly = true;
-            this.dataGridViewImageColumn1.Width = 25;
-            // 
             // CloseBtn
             // 
             this.CloseBtn.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -243,33 +183,93 @@
             this.removeFromRecentsToolStripMenuItem.Text = "Remove from Recents";
             this.removeFromRecentsToolStripMenuItem.Click += new System.EventHandler(this.removeFromRecentsToolStripMenuItem_Click);
             // 
+            // dataGridViewImageColumn1
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(52)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Calibri", 14.25F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle3.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle3.NullValue")));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(57)))), ((int)(((byte)(65)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridViewImageColumn1.HeaderText = "ImageColumn";
+            this.dataGridViewImageColumn1.Image = global::LiteDB.Studio.Properties.Resources.database;
+            this.dataGridViewImageColumn1.MinimumWidth = 25;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.ReadOnly = true;
+            this.dataGridViewImageColumn1.Width = 25;
+            // 
+            // OpenDbButton
+            // 
+            this.OpenDbButton.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.OpenDbButton.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
+            this.OpenDbButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(199)))), ((int)(((byte)(228)))));
+            this.OpenDbButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(230)))), ((int)(((byte)(243)))));
+            this.OpenDbButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.OpenDbButton.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OpenDbButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(43)))), ((int)(((byte)(48)))));
+            this.OpenDbButton.Image = global::LiteDB.Studio.Properties.Resources.iconpack_database;
+            this.OpenDbButton.Location = new System.Drawing.Point(10, 10);
+            this.OpenDbButton.Margin = new System.Windows.Forms.Padding(10);
+            this.OpenDbButton.Name = "OpenDbButton";
+            this.OpenDbButton.Padding = new System.Windows.Forms.Padding(5);
+            this.OpenDbButton.Size = new System.Drawing.Size(165, 85);
+            this.OpenDbButton.TabIndex = 2;
+            this.OpenDbButton.Tag = "#F3ECEC";
+            this.OpenDbButton.Text = "Open Database";
+            this.OpenDbButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.OpenDbButton.UseVisualStyleBackColor = false;
+            this.OpenDbButton.Click += new System.EventHandler(this.OpenDbButton_Click);
+            // 
+            // NewDbButton
+            // 
+            this.NewDbButton.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.NewDbButton.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
+            this.NewDbButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(199)))), ((int)(((byte)(228)))));
+            this.NewDbButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(230)))), ((int)(((byte)(243)))));
+            this.NewDbButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.NewDbButton.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NewDbButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(43)))), ((int)(((byte)(48)))));
+            this.NewDbButton.Image = global::LiteDB.Studio.Properties.Resources.iconpack_database_admin;
+            this.NewDbButton.Location = new System.Drawing.Point(195, 10);
+            this.NewDbButton.Margin = new System.Windows.Forms.Padding(10);
+            this.NewDbButton.Name = "NewDbButton";
+            this.NewDbButton.Padding = new System.Windows.Forms.Padding(5);
+            this.NewDbButton.Size = new System.Drawing.Size(165, 85);
+            this.NewDbButton.TabIndex = 3;
+            this.NewDbButton.Tag = "#F3ECEC";
+            this.NewDbButton.Text = "New Database";
+            this.NewDbButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.NewDbButton.UseVisualStyleBackColor = false;
+            // 
             // ColumnImage
             // 
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(239)))), ((int)(((byte)(239)))));
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Calibri", 14.25F);
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(43)))), ((int)(((byte)(48)))));
-            dataGridViewCellStyle14.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle14.NullValue")));
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(230)))), ((int)(((byte)(243)))));
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(43)))), ((int)(((byte)(48)))));
-            this.ColumnImage.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(239)))), ((int)(((byte)(239)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Calibri", 14.25F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(43)))), ((int)(((byte)(48)))));
+            dataGridViewCellStyle1.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle1.NullValue")));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(230)))), ((int)(((byte)(243)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(43)))), ((int)(((byte)(48)))));
+            this.ColumnImage.DefaultCellStyle = dataGridViewCellStyle1;
             this.ColumnImage.HeaderText = "ImageColumn";
             this.ColumnImage.Image = global::LiteDB.Studio.Properties.Resources.database;
-            this.ColumnImage.MinimumWidth = 25;
+            this.ColumnImage.MinimumWidth = 23;
             this.ColumnImage.Name = "ColumnImage";
             this.ColumnImage.ReadOnly = true;
-            this.ColumnImage.Width = 25;
+            this.ColumnImage.Width = 23;
             // 
             // ColumnRecentProjectTemplates
             // 
             this.ColumnRecentProjectTemplates.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.ColumnRecentProjectTemplates.DataPropertyName = "Title";
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(239)))), ((int)(((byte)(239)))));
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(43)))), ((int)(((byte)(48)))));
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(230)))), ((int)(((byte)(243)))));
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(43)))), ((int)(((byte)(48)))));
-            this.ColumnRecentProjectTemplates.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(239)))), ((int)(((byte)(239)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(43)))), ((int)(((byte)(48)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(230)))), ((int)(((byte)(243)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(43)))), ((int)(((byte)(48)))));
+            this.ColumnRecentProjectTemplates.DefaultCellStyle = dataGridViewCellStyle2;
             this.ColumnRecentProjectTemplates.HeaderText = "Recent Project Templates";
             this.ColumnRecentProjectTemplates.Name = "ColumnRecentProjectTemplates";
             this.ColumnRecentProjectTemplates.ReadOnly = true;
