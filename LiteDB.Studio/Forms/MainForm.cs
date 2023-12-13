@@ -184,8 +184,10 @@ namespace LiteDB.Studio
 
             task.Id = task.Thread.ManagedThreadId;
 
-            tab.Text = tab.Name = task.Id.ToString();
+            tab.Text = $"Query #{task.Id}";
+            tab.Name = task.Id.ToString();
             tab.Tag = task;
+            tab.ImageKey = "runquery";
 
             if (tabSql.SelectedTab != tab)
             {

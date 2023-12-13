@@ -93,31 +93,28 @@
             // 
             // splitMain
             // 
-            this.splitMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.splitMain.Location = new System.Drawing.Point(5, 36);
+            this.splitMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitMain.Location = new System.Drawing.Point(0, 33);
             this.splitMain.Name = "splitMain";
             // 
             // splitMain.Panel1
             // 
+            this.splitMain.Panel1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.splitMain.Panel1.Controls.Add(this.tvwDatabase);
             // 
             // splitMain.Panel2
             // 
             this.splitMain.Panel2.Controls.Add(this.splitRight);
             this.splitMain.Panel2.Controls.Add(this.tabSql);
-            this.splitMain.Size = new System.Drawing.Size(1456, 818);
-            this.splitMain.SplitterDistance = 315;
+            this.splitMain.Size = new System.Drawing.Size(1466, 824);
+            this.splitMain.SplitterDistance = 317;
             this.splitMain.TabIndex = 10;
             this.splitMain.TabStop = false;
             // 
             // tvwDatabase
             // 
-            this.tvwDatabase.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.tvwDatabase.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tvwDatabase.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tvwDatabase.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tvwDatabase.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(43)))), ((int)(((byte)(48)))));
             this.tvwDatabase.ImageIndex = 0;
@@ -126,7 +123,7 @@
             this.tvwDatabase.Margin = new System.Windows.Forms.Padding(0);
             this.tvwDatabase.Name = "tvwDatabase";
             this.tvwDatabase.SelectedImageIndex = 0;
-            this.tvwDatabase.Size = new System.Drawing.Size(315, 815);
+            this.tvwDatabase.Size = new System.Drawing.Size(317, 824);
             this.tvwDatabase.TabIndex = 9;
             this.tvwDatabase.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.TvwCols_NodeMouseDoubleClick);
             this.tvwDatabase.MouseUp += new System.Windows.Forms.MouseEventHandler(this.TvwCols_MouseUp);
@@ -139,6 +136,8 @@
             this.imgList.Images.SetKeyName(1, "folder");
             this.imgList.Images.SetKeyName(2, "table");
             this.imgList.Images.SetKeyName(3, "table_gear");
+            this.imgList.Images.SetKeyName(4, "codefile");
+            this.imgList.Images.SetKeyName(5, "runquery");
             // 
             // splitRight
             // 
@@ -157,38 +156,37 @@
             // splitRight.Panel2
             // 
             this.splitRight.Panel2.Controls.Add(this.tabResult);
-            this.splitRight.Size = new System.Drawing.Size(1127, 789);
-            this.splitRight.SplitterDistance = 240;
+            this.splitRight.Size = new System.Drawing.Size(1135, 795);
+            this.splitRight.SplitterDistance = 241;
             this.splitRight.TabIndex = 8;
             // 
             // txtSql
             // 
-            this.txtSql.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSql.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSql.ConvertTabsToSpaces = true;
+            this.txtSql.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtSql.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSql.Highlighting = "SQL";
             this.txtSql.Location = new System.Drawing.Point(0, 0);
             this.txtSql.Name = "txtSql";
             this.txtSql.ShowLineNumbers = false;
             this.txtSql.ShowVRuler = false;
-            this.txtSql.Size = new System.Drawing.Size(1123, 237);
+            this.txtSql.Size = new System.Drawing.Size(1135, 241);
             this.txtSql.TabIndex = 2;
             // 
             // tabResult
             // 
-            this.tabResult.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabResult.Controls.Add(this.tabGrid);
             this.tabResult.Controls.Add(this.tabText);
             this.tabResult.Controls.Add(this.tabParameters);
-            this.tabResult.Location = new System.Drawing.Point(0, 3);
+            this.tabResult.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.tabResult.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabResult.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabResult.ImageList = this.imgList;
+            this.tabResult.Location = new System.Drawing.Point(0, 0);
             this.tabResult.Name = "tabResult";
             this.tabResult.SelectedIndex = 0;
-            this.tabResult.Size = new System.Drawing.Size(1127, 542);
+            this.tabResult.Size = new System.Drawing.Size(1135, 550);
             this.tabResult.TabIndex = 0;
             this.tabResult.TabStop = false;
             this.tabResult.Selected += new System.Windows.Forms.TabControlEventHandler(this.TabResult_Selected);
@@ -196,10 +194,11 @@
             // tabGrid
             // 
             this.tabGrid.Controls.Add(this.grdResult);
-            this.tabGrid.Location = new System.Drawing.Point(4, 24);
+            this.tabGrid.ImageKey = "table";
+            this.tabGrid.Location = new System.Drawing.Point(4, 25);
             this.tabGrid.Name = "tabGrid";
             this.tabGrid.Padding = new System.Windows.Forms.Padding(3);
-            this.tabGrid.Size = new System.Drawing.Size(1119, 514);
+            this.tabGrid.Size = new System.Drawing.Size(1127, 521);
             this.tabGrid.TabIndex = 0;
             this.tabGrid.Text = "Grid";
             this.tabGrid.UseVisualStyleBackColor = true;
@@ -208,13 +207,12 @@
             // 
             this.grdResult.AllowUserToAddRows = false;
             this.grdResult.AllowUserToDeleteRows = false;
-            this.grdResult.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.grdResult.BackgroundColor = System.Drawing.Color.White;
             this.grdResult.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdResult.Location = new System.Drawing.Point(6, 5);
+            this.grdResult.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdResult.Location = new System.Drawing.Point(3, 3);
             this.grdResult.Name = "grdResult";
-            this.grdResult.Size = new System.Drawing.Size(1106, 489);
+            this.grdResult.Size = new System.Drawing.Size(1121, 515);
             this.grdResult.TabIndex = 0;
             this.grdResult.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.GrdResult_CellBeginEdit);
             this.grdResult.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.GrdResult_CellEndEdit);
@@ -223,64 +221,65 @@
             // tabText
             // 
             this.tabText.Controls.Add(this.txtResult);
-            this.tabText.Location = new System.Drawing.Point(4, 24);
+            this.tabText.ImageKey = "codefile";
+            this.tabText.Location = new System.Drawing.Point(4, 25);
             this.tabText.Name = "tabText";
             this.tabText.Padding = new System.Windows.Forms.Padding(3);
-            this.tabText.Size = new System.Drawing.Size(1119, 514);
+            this.tabText.Size = new System.Drawing.Size(1127, 521);
             this.tabText.TabIndex = 3;
             this.tabText.Text = "Text";
             this.tabText.UseVisualStyleBackColor = true;
             // 
             // txtResult
             // 
-            this.txtResult.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtResult.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtResult.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtResult.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtResult.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtResult.Highlighting = "JSON";
-            this.txtResult.Location = new System.Drawing.Point(5, 4);
+            this.txtResult.Location = new System.Drawing.Point(3, 3);
             this.txtResult.Name = "txtResult";
             this.txtResult.ReadOnly = true;
             this.txtResult.ShowLineNumbers = false;
             this.txtResult.ShowVRuler = false;
-            this.txtResult.Size = new System.Drawing.Size(1108, 504);
+            this.txtResult.Size = new System.Drawing.Size(1121, 515);
             this.txtResult.TabIndex = 1;
             // 
             // tabParameters
             // 
             this.tabParameters.Controls.Add(this.txtParameters);
-            this.tabParameters.Location = new System.Drawing.Point(4, 22);
+            this.tabParameters.ImageIndex = 3;
+            this.tabParameters.Location = new System.Drawing.Point(4, 25);
             this.tabParameters.Name = "tabParameters";
             this.tabParameters.Padding = new System.Windows.Forms.Padding(3);
-            this.tabParameters.Size = new System.Drawing.Size(1119, 516);
+            this.tabParameters.Size = new System.Drawing.Size(1127, 521);
             this.tabParameters.TabIndex = 5;
             this.tabParameters.Text = "Parameters";
             this.tabParameters.UseVisualStyleBackColor = true;
             // 
             // txtParameters
             // 
-            this.txtParameters.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtParameters.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtParameters.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtParameters.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtParameters.Highlighting = "JSON";
-            this.txtParameters.Location = new System.Drawing.Point(6, 5);
+            this.txtParameters.Location = new System.Drawing.Point(3, 3);
             this.txtParameters.Name = "txtParameters";
             this.txtParameters.ReadOnly = true;
             this.txtParameters.ShowLineNumbers = false;
             this.txtParameters.ShowVRuler = false;
-            this.txtParameters.Size = new System.Drawing.Size(811, 350);
+            this.txtParameters.Size = new System.Drawing.Size(1121, 515);
             this.txtParameters.TabIndex = 2;
             // 
             // tabSql
             // 
-            this.tabSql.Location = new System.Drawing.Point(3, 0);
+            this.tabSql.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tabSql.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabSql.ImageList = this.imgList;
+            this.tabSql.Location = new System.Drawing.Point(0, 0);
             this.tabSql.Margin = new System.Windows.Forms.Padding(0);
             this.tabSql.Name = "tabSql";
             this.tabSql.SelectedIndex = 0;
-            this.tabSql.Size = new System.Drawing.Size(821, 24);
+            this.tabSql.Size = new System.Drawing.Size(1145, 23);
             this.tabSql.TabIndex = 9;
             this.tabSql.TabStop = false;
             this.tabSql.SelectedIndexChanged += new System.EventHandler(this.TabSql_SelectedIndexChanged);
@@ -329,7 +328,7 @@
             // 
             // tlbMain
             // 
-            this.tlbMain.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tlbMain.BackColor = System.Drawing.Color.Azure;
             this.tlbMain.Font = new System.Drawing.Font("Bahnschrift", 9.75F);
             this.tlbMain.GripMargin = new System.Windows.Forms.Padding(3);
             this.tlbMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -537,15 +536,17 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1466, 879);
+            this.Controls.Add(this.splitMain);
             this.Controls.Add(this.tlbMain);
             this.Controls.Add(this.stbStatus);
-            this.Controls.Add(this.splitMain);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "MainForm";
+            this.Opacity = 0.99D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LiteDB Studio";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainForm_KeyDown);
