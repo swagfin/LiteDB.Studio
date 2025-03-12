@@ -9,35 +9,46 @@ namespace LiteDB.Studio.Forms
 {
     public partial class StartUpForm : Form
     {
-        private string RecentSaveFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "RecentConnections.temp");
+        private readonly string _recentSaveFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "RecentConnections.temp");
+        private readonly string[] _args;
+
         public List<string> RecentConnections { get; private set; } = new List<string>();
 
         public StartUpForm(string[] args)
         {
+            _args = args;
             InitializeComponent();
             SystemVersionLabel.Text = Program.AppVersion;
         }
+
         private void StartUpForm_Load(object sender, EventArgs e)
         {
-            RefreshRecentFiles();
+            string argFile = _args.FirstOrDefault();
+            if (!string.IsNullOrEmpty(argFile) && File.Exists(argFile))
+            {
+                TryOpenDbFile(new RecentOpenedDbFile(argFile), true);
+            }
+            else
+                RefreshRecentFiles();
         }
 
         private void RefreshRecentFiles()
         {
             try
             {
-                if (!File.Exists(RecentSaveFile))
+                if (!File.Exists(_recentSaveFile))
                 {
                     RecentOpenedDbGrid.Visible = false;
                     return;
                 }
                 //set datasource reversed
-                this.RecentConnections = File.ReadAllLines(RecentSaveFile, Encoding.UTF8).Select(x => x.Trim()).Distinct().Take(10).Reverse().ToList();
+                this.RecentConnections = File.ReadAllLines(_recentSaveFile, Encoding.UTF8).Select(x => x.Trim()).Distinct().Take(10).Reverse().ToList();
                 RecentOpenedDbGrid.DataSource = this.RecentConnections.Select(x => new RecentOpenedDbFile(x)).ToList() ?? new List<RecentOpenedDbFile>();
                 RecentOpenedDbGrid.Visible = (RecentOpenedDbGrid.RowCount > 0);
             }
             catch { }
         }
+
         private void AddToRecentFiles(string connectionFileName)
         {
             try
@@ -45,7 +56,7 @@ namespace LiteDB.Studio.Forms
                 if (this.RecentConnections.Contains(connectionFileName.Trim()))
                     this.RecentConnections.Remove(connectionFileName.Trim());
                 this.RecentConnections.Add(connectionFileName.Trim());
-                File.WriteAllLines(RecentSaveFile, this.RecentConnections, Encoding.UTF8);
+                File.WriteAllLines(_recentSaveFile, this.RecentConnections, Encoding.UTF8);
             }
             catch { }
         }
@@ -62,6 +73,28 @@ namespace LiteDB.Studio.Forms
         private void CloseBtn_Click(object sender, System.EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void TryOpenDbFile(RecentOpenedDbFile recentOpenedDbFile, bool exitOnClose = false)
+        {
+            ConnectionString connectionString = TriggerAttemptOpenDatabase(recentOpenedDbFile.FilePath);
+            if (connectionString != null)
+            {
+                //save last connection
+                AddToRecentFiles(connectionString.Filename);
+                MainForm mainFormRequest = new MainForm(connectionString);
+                mainFormRequest.ShowDialog();
+                if (exitOnClose)
+                {
+                    Environment.Exit(0);
+                }
+                else
+                {
+                    this.Show();
+                    //refresh  recent files
+                    RefreshRecentFiles();
+                }
+            }
         }
 
         private void OpenDbButton_Click(object sender, System.EventArgs e)
@@ -117,7 +150,8 @@ namespace LiteDB.Studio.Forms
                     using (LiteDatabase liteDatabase = new LiteDatabase(dbConnectionString))
                     {
                         _ = liteDatabase.UserVersion; //force open
-                    };
+                    }
+                    ;
                 }
                 catch (LiteException ex)
                 {
@@ -157,20 +191,11 @@ namespace LiteDB.Studio.Forms
                 if (recentOpenedDbFile == null)
                     return;
                 //attempt open Db
-                ConnectionString connectionString = TriggerAttemptOpenDatabase(recentOpenedDbFile.FilePath);
-                if (connectionString != null)
-                {
-                    //save last connection
-                    AddToRecentFiles(connectionString.Filename);
-                    MainForm mainFormRequest = new MainForm(connectionString);
-                    mainFormRequest.ShowDialog();
-                    this.Show();
-                    //refresh  recent files
-                    RefreshRecentFiles();
-                }
+                TryOpenDbFile(recentOpenedDbFile);
             }
             catch (Exception ex) { Program.HandleError(ex); }
         }
+
 
         private void RecentOpenedDbGrid_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
@@ -198,7 +223,7 @@ namespace LiteDB.Studio.Forms
                     return;
                 if (this.RecentConnections.Contains(recentOpenedDbFile.FilePath.Trim()))
                     this.RecentConnections.Remove(recentOpenedDbFile.FilePath.Trim());
-                File.WriteAllLines(RecentSaveFile, this.RecentConnections, Encoding.UTF8);
+                File.WriteAllLines(_recentSaveFile, this.RecentConnections, Encoding.UTF8);
                 RefreshRecentFiles();
             }
             catch (Exception ex) { Program.HandleError(ex); }
